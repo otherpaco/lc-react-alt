@@ -13,3 +13,4 @@ Go get a [Laracasts subscription](https://laracasts.com/) it is worth it but the
 - Episode 1 - Intro
 - Episode 2 - A Better Dev Experience
 - Initial markup and style for todo app (**start here for Episode 3**)
+- Episode 3 - Making use of state
