@@ -1,21 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
 import { useState } from 'react';
 import Another from './Another';
+import logo from './logo.svg';
+import '../App.css';
 
 function App() {
   const [count, setCount] = useState(0);
-  const decrement = () => {
+
+  function decrement() {
     setCount(prevCount => prevCount - 1);
-  };
-  const increment = () => {
+  }
+
+  function increment() {
     setCount(prevCount => prevCount + 1);
+  }
+
+  const someStyle = {
+    background: 'blue',
+    color: 'white',
+    fontSize: '28px',
+    fontWeight: 'bold',
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <Another name="Paco" />
+        <Another name="Andre" />
         <div>
           <span>{count}</span>
           <button onClick={decrement}>-</button>
@@ -25,6 +34,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        {true && <p style={someStyle}>{3 + 2}</p>}
         <a
           className="App-link"
           href="https://reactjs.org"
