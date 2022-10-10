@@ -1,4 +1,31 @@
+import { CheckAll } from './CheckAll';
+import { TodoFilters } from './TodoFilters';
+import { TodoClearCompleted } from './TodoClearCompleted';
+import { TodoItemsRemaining } from './TodoItemsRemaining';
+import { useState } from 'react';
+
 const TodoList = ({ todos, setTodos }) => {
+  /**
+   * STATES
+   */
+  const [filter, setFilter] = useState('all');
+
+  /**
+   * Filters the list of Todos
+   * @param {string} filter - Type of filter
+   * @returns {Array} Aray of Todos
+   */
+  const todosFiltered = (filter) => {
+    switch (filter) {
+      case 'active':
+        return todos.filter((todo) => !todo.isComplete);
+      case 'completed':
+        return todos.filter((todo) => todo.isComplete);
+      default:
+        return todos;
+    }
+  };
+
   const toggleIsComplete = (id) => {
     const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
@@ -38,7 +65,7 @@ const TodoList = ({ todos, setTodos }) => {
   return (
     <>
       <ul className="todo-list">
-        {todos.map((todo, index) => (
+        {todosFiltered(filter).map((todo, index) => (
           <li key={todo.id} className="todo-item-container">
             <div className="todo-item">
               <input
@@ -93,22 +120,17 @@ const TodoList = ({ todos, setTodos }) => {
 
       <div className="check-all-container">
         <div>
-          <div className="button">Check All</div>
+          <CheckAll todos={todos} setTodos={setTodos} />
         </div>
-
-        <span>3 items remaining</span>
+        <TodoItemsRemaining todos={todos} />
       </div>
 
       <div className="other-buttons-container">
         <div>
-          <button className="button filter-button filter-button-active">
-            All
-          </button>
-          <button className="button filter-button">Active</button>
-          <button className="button filter-button">Completed</button>
+          <TodoFilters setFilter={setFilter} />
         </div>
         <div>
-          <button className="button">Clear completed</button>
+          <TodoClearCompleted todos={todos} setTodos={setTodos} />
         </div>
       </div>
     </>
