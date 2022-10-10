@@ -15,3 +15,4 @@ Go get a [Laracasts subscription](https://laracasts.com/) it is worth it but the
 - Initial markup and style for todo app (**start here for Episode 3**)
 - Episode 3 - Making use of state
 - Episode 4 - Event Listeners
+- Episode 5 - Editing Todos
