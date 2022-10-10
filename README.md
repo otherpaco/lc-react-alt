@@ -16,3 +16,4 @@ Go get a [Laracasts subscription](https://laracasts.com/) it is worth it but the
 - Episode 3 - Making use of state
 - Episode 4 - Event Listeners
 - Episode 5 - Editing Todos
+- Episode 6 - Extracting Components
