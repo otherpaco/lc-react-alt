@@ -1,14 +1,16 @@
 import '../reset.css';
 import '../App.css';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { NoTodos } from './NoTodos';
 import { TodoList } from './TodoList';
 import { TodoForm } from './TodoFrom';
 
 function App() {
   /**
-   * STATES
+   * HOOKS
    */
+  const nameInputEl = useRef(null);
+  const [name, setName] = useState('');
   const [todos, setTodos] = useState([
     {
       id: 1,
@@ -49,12 +51,36 @@ function App() {
     setIdForTodo((prevId) => prevId + 1);
   };
 
+  useEffect(() => {
+    // console.log('use effect runing');
+    nameInputEl.current.focus();
+
+    return () => {
+      // console.log('cleaning up');
+    };
+  }, []);
+
   /**
    * JSX
    */
   return (
     <div className="todo-app-container">
       <div className="todo-app">
+        <div className="name-container">
+          <h2>What is your name?</h2>
+          <form action="#">
+            <input
+              type="text"
+              ref={nameInputEl}
+              className="todo-input"
+              placeholder="What is your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </form>
+          {/* onyl show when name is set */}
+          {name && <p className="name-label">Hello, {name}</p>}
+        </div>
         <h2>Todo App</h2>
         <TodoForm addTodo={addTodo} />
         {todos.length > 0 ? (

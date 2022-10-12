@@ -18,3 +18,4 @@ Go get a [Laracasts subscription](https://laracasts.com/) it is worth it but the
 - Episode 5 - Editing Todos
 - Episode 6 - Extracting Components
 - Episode 7 - More Todo Features
+- Episode 8 - Other Built-in React Hooks
