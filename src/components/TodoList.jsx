@@ -3,12 +3,15 @@ import { TodoFilters } from './TodoFilters';
 import { TodoClearCompleted } from './TodoClearCompleted';
 import { TodoItemsRemaining } from './TodoItemsRemaining';
 import { useState } from 'react';
+import { useToggle } from '../hooks/useToggle';
 
 const TodoList = ({ todos, setTodos }) => {
   /**
    * STATES
    */
   const [filter, setFilter] = useState('all');
+  const [isFeatOneVisible, toggleFeatOneVisibility] = useToggle();
+  const [isFeatTwoVisible, toggleFeatTwoVisibility] = useToggle(false);
 
   /**
    * Filters the list of Todos
@@ -118,21 +121,33 @@ const TodoList = ({ todos, setTodos }) => {
         ))}
       </ul>
 
-      <div className="check-all-container">
-        <div>
-          <CheckAll todos={todos} setTodos={setTodos} />
-        </div>
-        <TodoItemsRemaining todos={todos} />
+      <div className="toggles-container">
+        <button onClick={toggleFeatOneVisibility} className="button">
+          Features One Toggle
+        </button>
+        <button onClick={toggleFeatTwoVisibility} className="button">
+          Features Two Toggle
+        </button>
       </div>
 
-      <div className="other-buttons-container">
-        <div>
-          <TodoFilters setFilter={setFilter} />
+      {isFeatOneVisible && (
+        <div className="check-all-container">
+          <div>
+            <CheckAll todos={todos} setTodos={setTodos} />
+          </div>
+          <TodoItemsRemaining todos={todos} />
         </div>
-        <div>
-          <TodoClearCompleted todos={todos} setTodos={setTodos} />
+      )}
+      {isFeatTwoVisible && (
+        <div className="other-buttons-container">
+          <div>
+            <TodoFilters setFilter={setFilter} />
+          </div>
+          <div>
+            <TodoClearCompleted todos={todos} setTodos={setTodos} />
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
