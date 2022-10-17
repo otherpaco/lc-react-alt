@@ -1,8 +1,10 @@
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
+import { TodosContext } from '../context/TodosContext';
 
-const TodoItemsRemaining = ({ todos }) => {
+const TodoItemsRemaining = () => {
+  const { todos } = useContext(TodosContext);
+
   const calcRemainingTodos = () => {
-    // console.log('remaining Todos fct called');
     return todos.filter((todo) => !todo.isComplete).length;
   };
 

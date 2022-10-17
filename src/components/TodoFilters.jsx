@@ -1,4 +1,9 @@
-const TodoFilters = ({ setFilter }) => {
+import { useContext } from 'react';
+import { TodosContext } from '../context/TodosContext';
+
+const TodoFilters = () => {
+  const { setFilter } = useContext(TodosContext);
+
   const active = 'filter-button-active';
 
   const handleClick = (event, filter) => {
