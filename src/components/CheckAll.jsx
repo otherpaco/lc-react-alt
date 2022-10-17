@@ -1,4 +1,9 @@
-const CheckAll = ({ todos, setTodos }) => {
+import { useContext } from 'react';
+import { TodosContext } from '../context/TodosContext';
+
+const CheckAll = () => {
+  const { todos, setTodos } = useContext(TodosContext);
+
   const completeAll = () => {
     setTodos(
       todos.map((todo) => {
