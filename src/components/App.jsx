@@ -6,6 +6,7 @@ import { TodoList } from './TodoList';
 import { TodoForm } from './TodoFrom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { TodosContext } from '../context/TodosContext';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 function App() {
   /**
@@ -55,11 +56,27 @@ function App() {
               />
             </form>
             {/* onyl show when name is set */}
-            {name && <p className="name-label">Hello, {name}</p>}
+            <CSSTransition
+              in={!!name}
+              timeout={300}
+              classNames="slide-vertical"
+              unmountOnExit
+            >
+              <p className="name-label">Hello, {name}</p>
+            </CSSTransition>
           </div>
           <h2>Todo App</h2>
           <TodoForm />
-          {todos.length > 0 ? <TodoList /> : <NoTodos />}
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              key={todos.length > 0}
+              timeout={300}
+              classNames="slide-vertical"
+              unmountOnExit
+            >
+              {todos.length > 0 ? <TodoList /> : <NoTodos />}
+            </CSSTransition>
+          </SwitchTransition>
         </div>
       </div>
     </TodosContext.Provider>
