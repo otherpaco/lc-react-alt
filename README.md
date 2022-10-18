@@ -21,3 +21,4 @@ Go get a [Laracasts subscription](https://laracasts.com/) it is worth it but the
 - Episode 8 - Other Built-in React Hooks
 - Episode 9 - Custom Hooks
 - Episode 10 - useContext for State Management
+- Episode 11 - React Transition Group
