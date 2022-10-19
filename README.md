@@ -22,3 +22,4 @@ Go get a [Laracasts subscription](https://laracasts.com/) it is worth it but the
 - Episode 9 - Custom Hooks
 - Episode 10 - useContext for State Management
 - Episode 11 - React Transition Group
+- Episode 12 - React Router (**with React Router v6**)
