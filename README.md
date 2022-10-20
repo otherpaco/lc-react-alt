@@ -23,3 +23,5 @@ Go get a [Laracasts subscription](https://laracasts.com/) it is worth it but the
 - Episode 10 - useContext for State Management
 - Episode 11 - React Transition Group
 - Episode 12 - React Router (**with React Router v6**)
+- Initial markup for react fetch(**start here for Episode 13**)  
+Entrypoint is `AppFetchData.jsx` instead of `App.jsx`

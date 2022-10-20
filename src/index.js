@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AppFetchData from './components/AppFetchData';
 import './index.css';
-import { Root } from './components/Root';
+// import { Root } from './components/Root';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Root />
+    {/* <Root /> */}
+    <AppFetchData />
   </React.StrictMode>,
   document.getElementById('root')
 );
