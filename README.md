@@ -26,3 +26,4 @@ Go get a [Laracasts subscription](https://laracasts.com/) it is worth it but the
 - Initial markup for react fetch(**start here for Episode 13**)  
 Entrypoint is `AppFetchData.jsx` instead of `App.jsx`
 - Episode 13 - Fetching Data from external server
+- Episode 14 - Fetching Data with custom hook

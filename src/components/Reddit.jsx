@@ -1,25 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useFetch } from '../useFetch';
 
 const Reddit = () => {
-  const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [errorMessage, setErorMessage] = useState(null);
+  const {
+    data: posts,
+    isLoading,
+    errorMessage,
+  } = useFetch('https:/www.reddit.com/r/aww.json');
 
-  useEffect(() => {
-    fetch('https:/www.reddit.com/r/aww.json').then((response) => {
-      response
-        .json()
-        .then((results) => {
-          setPosts(results.data.children);
-          setIsLoading(false);
-          setErorMessage(null);
-        })
-        .catch((error) => {
-          setIsLoading(false);
-          setErorMessage('There was an error!');
-        });
-    });
-  }, []);
+  console.log(posts);
+
   return (
     <div>
       <h2>Reddit API</h2>
@@ -27,7 +16,7 @@ const Reddit = () => {
       {errorMessage && <div>{errorMessage}</div>}
       {posts && !errorMessage && (
         <ul>
-          {posts.map((post) => {
+          {posts.data.children.map((post) => {
             return (
               <li key={post.data.id}>
                 <a href={`https://www.reddit.com${post.data.permalink}`}>
