@@ -1,18 +1,29 @@
-import { useFetch } from '../useFetch';
+import { useQuery } from 'react-query';
 
 const Joke = () => {
+  const fetchJoke = () => {
+    return fetch('https://official-joke-api.appspot.com/jokes/random').then(
+      (response) => response.json()
+    );
+  };
+
   const {
     data: joke,
     isLoading,
-    errorMessage,
-  } = useFetch('https://official-joke-api.appspot.com/jokes/random');
+    isError,
+    error,
+    isSuccess,
+  } = useQuery('joke', fetchJoke, {
+    staleTime: 6000,
+    refetchOnWindowFocus: false,
+  });
 
   return (
     <div>
       <h2>Joke API</h2>
       {isLoading && <div>Loading...</div>}
-      {errorMessage && <div>{errorMessage}</div>}
-      {joke && !errorMessage && <div>{joke.setup + ' ' + joke.punchline}</div>}
+      {isError && <div>{error.message}</div>}
+      {isSuccess && <div>{joke.setup + ' ' + joke.punchline}</div>}
     </div>
   );
 };

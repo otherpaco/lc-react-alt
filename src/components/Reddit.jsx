@@ -1,20 +1,25 @@
-import { useFetch } from '../useFetch';
+import { useQuery } from 'react-query';
 
 const Reddit = () => {
+  const fetchPosts = () => {
+    return fetch('https://www.reddit.com/r/aww.json').then((response) =>
+      response.json()
+    );
+  };
+
   const {
     data: posts,
     isLoading,
-    errorMessage,
-  } = useFetch('https:/www.reddit.com/r/aww.json');
-
-  console.log(posts);
-
+    isError,
+    error,
+    isSuccess,
+  } = useQuery('posts', fetchPosts);
   return (
     <div>
       <h2>Reddit API</h2>
       {isLoading && <div>Loading...</div>}
-      {errorMessage && <div>{errorMessage}</div>}
-      {posts && !errorMessage && (
+      {isError && <div>{error.message}</div>}
+      {isSuccess && (
         <ul>
           {posts.data.children.map((post) => {
             return (

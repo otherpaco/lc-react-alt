@@ -27,3 +27,4 @@ Go get a [Laracasts subscription](https://laracasts.com/) it is worth it but the
 Entrypoint is `AppFetchData.jsx` instead of `App.jsx`
 - Episode 13 - Fetching Data from external server
 - Episode 14 - Fetching Data with custom hook
+- Episode 15 - Fetching Data with React Query
