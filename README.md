@@ -28,3 +28,5 @@ Entrypoint is `AppFetchData.jsx` instead of `App.jsx`
 - Episode 13 - Fetching Data from external server
 - Episode 14 - Fetching Data with custom hook
 - Episode 15 - Fetching Data with React Query
+- Initial markup for GitHub issues project (**start here for Episode 16**)  
+Entrypoint is `AppGitHubIssues.jsx`

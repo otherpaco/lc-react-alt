@@ -1,3 +1,5 @@
+import '../reset.css';
+import '../App.css';
 import { Reddit } from './Reddit';
 import { Joke } from './Joke';
 import { useState } from 'react';
