@@ -1,4 +1,4 @@
-import { formatDistance, subDays } from 'date-fns';
+import { formatDistance } from 'date-fns';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
@@ -48,7 +48,9 @@ const Issues = () => {
       {isSuccess && (
         <>
           <div className="issues-heading">
-            <a href="#">facebook / create-react-app</a>
+            <a href="https://github.com/facebook/create-react-app">
+              facebook / create-react-app
+            </a>
             <div className="open-closed-buttons">
               <button onClick={() => setFilter('open')}>
                 <IconOpen />
@@ -75,7 +77,7 @@ const Issues = () => {
                   {issue.state === 'open' && <IconOpen />}
                   {issue.state === 'closed' && <IconClosed />}
                   <div className="issues-title">
-                    <Link to={`issues/1`}>{issue.title}</Link>
+                    <Link to={`issues/${issue.number}`}>{issue.title}</Link>
                     <div className="issues-title-details">
                       #{issue.number} opened{' '}
                       {formatDistance(new Date(issue.created_at), new Date(), {
@@ -86,7 +88,10 @@ const Issues = () => {
                   </div>
                 </div>
                 {issue.comments > 0 && (
-                  <Link to={`issues/1`} className="comments-count-container">
+                  <Link
+                    to={`issues/${issue.number}`}
+                    className="comments-count-container"
+                  >
                     <svg
                       className="octicon octicon-comment v-align-middle"
                       viewBox="0 0 16 16"

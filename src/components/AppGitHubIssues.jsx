@@ -1,5 +1,6 @@
 import '../reset.css';
 import '../AppGitHubIssues.css';
+import '../github-markdown.css';
 import { Issues } from './Issues';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import { Details } from './Details';
