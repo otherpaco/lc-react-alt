@@ -30,3 +30,4 @@ Entrypoint is `AppFetchData.jsx` instead of `App.jsx`
 - Episode 15 - Fetching Data with React Query
 - Initial markup for GitHub issues project (**start here for Episode 16**)  
 Entrypoint is `AppGitHubIssues.jsx`
+- Episode 16 - Pull data from GitHub Issues API
